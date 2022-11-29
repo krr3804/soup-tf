@@ -63,11 +63,11 @@ do
     printf "}\n" >> $of
 
     # copy the files into place
-    ln -s ~/environment/environment/soup-tf-code/tf-setup/$of ~/environment/environment/soup-tf-code/$section
+    ln -s ~/environment/soup-tf-code/tf-setup/$of ~/environment/soup-tf-code/$section
     # link these
-    ln  -s ~/environment/environment/soup-tf-code/tf-setup/aws-data.tf ~/environment/environment/soup-tf-code/$section
-    ln  -s ~/environment/environment/soup-tf-code/tf-setup/vars-dynamodb.tf ~/environment/environment/soup-tf-code/$section
-    ln  -s ~/environment/environment/soup-tf-code/tf-setup/vars-main.tf ~/environment/environment/soup-tf-code/$section
+    ln  -s ~/environment/soup-tf-code/tf-setup/aws-data.tf ~/environment/soup-tf-code/$section
+    ln  -s ~/environment/soup-tf-code/tf-setup/vars-dynamodb.tf ~/environment/soup-tf-code/$section
+    ln  -s ~/environment/soup-tf-code/tf-setup/vars-main.tf ~/environment/soup-tf-code/$section
 
 done
 
@@ -102,20 +102,20 @@ done
 echo "remotes"
 
 # put in place remote state access where required
-ln  -s ~/environment/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/environment/soup-tf-code/c9net 
-ln  -s ~/environment/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/environment/soup-tf-code/cluster
-ln  -s ~/environment/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/environment/soup-tf-code/nodeg
-ln  -s ~/environment/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/environment/soup-tf-code/maint
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/c9net 
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/cluster
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/nodeg
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/maint
 #cp  -v generated/remote-net.tf ../extra/.fargate
 
 #cp  -v generated/remote-nodeg.tf ../extra/.karpenter
 
-ln  -s ~/environment/environment/soup-tf-code/tf-setup/generated/remote-iam.tf ~/environment/environment/soup-tf-code/cluster 
-ln  -s ~/environment/environment/soup-tf-code/tf-setup/generated/remote-iam.tf ~/environment/environment/soup-tf-code/nodeg
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-iam.tf ~/environment/soup-tf-code/cluster 
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-iam.tf ~/environment/soup-tf-code/nodeg
 
 echo "Copy remote-cluster.tf"
-ln  -s ~/environment/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/environment/soup-tf-code/nodeg
-ln  -s ~/environment/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/environment/soup-tf-code/lb
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/nodeg
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/lb
 #cp  -v generated/remote-cluster.tf ../extra/.fargate
 
 # Prepare "local state" for the sample app and extra activities

@@ -20,7 +20,7 @@ resource "aws_vpc_endpoint" "vpce-s3" {
     aws_route_table.rtb-prod-pri2.id
   ]
   security_group_ids = []
-  service_name       = format("com.amazonaws.%s.s3",data.aws_region.current.name)
+  service_name       = format("com.amazonaws.%s.s3", data.aws_region.current.name)
   subnet_ids         = []
   tags               = {}
   vpc_endpoint_type  = "Gateway"

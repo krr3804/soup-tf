@@ -5,7 +5,7 @@ resource "aws_vpc" "vpc-prod1" {
   enable_dns_support               = true
   instance_tenancy                 = "default"
   tags = {
-    "Name"                                        = "vpc-prod-1"
+    "Name" = "vpc-prod-1"
   }
 }
 

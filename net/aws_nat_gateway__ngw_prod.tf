@@ -3,7 +3,7 @@ resource "aws_eip" "eipalloc-prod-ngw-01" {
   public_ipv4_pool = "amazon"
   tags             = {}
   vpc              = true
-  
+
   timeouts {}
 }
 

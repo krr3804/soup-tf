@@ -5,7 +5,7 @@ resource "aws_subnet" "subnet-prod-pri1" {
   cidr_block                      = "10.0.2.0/23"
   map_public_ip_on_launch         = false
   tags = {
-    "Name"                                      = "sbn-prod-pri-01a"
+    "Name" = "sbn-prod-pri-01a"
   }
   vpc_id = aws_vpc.vpc-prod1.id
 
@@ -23,7 +23,7 @@ resource "aws_subnet" "subnet-prod-pri2" {
   cidr_block                      = "10.0.4.0/23"
   map_public_ip_on_launch         = false
   tags = {
-    "Name"                                      = "sbn-prod-pri-01c"
+    "Name" = "sbn-prod-pri-01c"
   }
   vpc_id = aws_vpc.vpc-prod1.id
 
@@ -41,7 +41,7 @@ resource "aws_subnet" "subnet-prod-pri3" {
   cidr_block                      = "10.0.6.0/23"
   map_public_ip_on_launch         = false
   tags = {
-    "Name"                                      = "sbn-prod-pri-02a"
+    "Name" = "sbn-prod-pri-02a"
   }
   vpc_id = aws_vpc.vpc-prod1.id
 
@@ -59,7 +59,7 @@ resource "aws_subnet" "subnet-prod-pri4" {
   cidr_block                      = "10.0.8.0/23"
   map_public_ip_on_launch         = false
   tags = {
-    "Name"                                      = "sbn-prod-pri-02c"
+    "Name" = "sbn-prod-pri-02c"
   }
   vpc_id = aws_vpc.vpc-prod1.id
 
@@ -78,7 +78,7 @@ resource "aws_subnet" "subnet-prod-pub1" {
   cidr_block                      = "10.0.0.0/24"
   map_public_ip_on_launch         = true
   tags = {
-    "Name"                                      = "sbn-prod-pub-01a"
+    "Name" = "sbn-prod-pub-01a"
   }
   vpc_id = aws_vpc.vpc-prod1.id
 
@@ -97,7 +97,7 @@ resource "aws_subnet" "subnet-prod-pub2" {
   cidr_block                      = "10.0.1.0/24"
   map_public_ip_on_launch         = true
   tags = {
-    "Name"                                      = "sbn-prod-pub-01c"
+    "Name" = "sbn-prod-pub-01c"
   }
   vpc_id = aws_vpc.vpc-prod1.id
 

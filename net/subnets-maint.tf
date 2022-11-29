@@ -4,7 +4,7 @@ resource "aws_subnet" "subnet-maint-pub" {
   cidr_block                      = "192.168.0.0/26"
   map_public_ip_on_launch         = true
   tags = {
-    "Name"                                      = "sbn-maint-pub"
+    "Name" = "sbn-maint-pub"
   }
   vpc_id = aws_vpc.vpc-maint1.id
 
