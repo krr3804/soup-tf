@@ -19,7 +19,7 @@ output "sub-prod-pri1" {
 # aws_subnet.subnet-prod-pri-2:
 resource "aws_subnet" "subnet-prod-pri2" {
   assign_ipv6_address_on_creation = false
-  availability_zone               = data.aws_availability_zones.az.names[1]
+  availability_zone               = data.aws_availability_zones.az.names[2]
   cidr_block                      = "10.0.4.0/23"
   map_public_ip_on_launch         = false
   tags = {
@@ -55,7 +55,7 @@ output "sub-prod-pri3" {
 # aws_subnet.subnet-prod-pri-2:
 resource "aws_subnet" "subnet-prod-pri4" {
   assign_ipv6_address_on_creation = false
-  availability_zone               = data.aws_availability_zones.az.names[1]
+  availability_zone               = data.aws_availability_zones.az.names[2]
   cidr_block                      = "10.0.8.0/23"
   map_public_ip_on_launch         = false
   tags = {
@@ -93,7 +93,7 @@ output "sub-prod-pub1" {
 # aws_subnet.subnet-prod-pub2:
 resource "aws_subnet" "subnet-prod-pub2" {
   assign_ipv6_address_on_creation = false
-  availability_zone               = data.aws_availability_zones.az.names[1]
+  availability_zone               = data.aws_availability_zones.az.names[2]
   cidr_block                      = "10.0.1.0/24"
   map_public_ip_on_launch         = true
   tags = {

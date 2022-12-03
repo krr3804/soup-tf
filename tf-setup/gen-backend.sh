@@ -68,7 +68,7 @@ do
     ln  -s ~/environment/soup-tf-code/tf-setup/aws-data.tf ~/environment/soup-tf-code/$section
     ln  -s ~/environment/soup-tf-code/tf-setup/vars-dynamodb.tf ~/environment/soup-tf-code/$section
     ln  -s ~/environment/soup-tf-code/tf-setup/vars-main.tf ~/environment/soup-tf-code/$section
-
+    ln  -s ~/environment/soup-tf-code/tf-setup/var-tfid.tf ~/environment/soup-tf-code/$section
 done
 
 # next generate the remote_state config files 
