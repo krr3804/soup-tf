@@ -18,7 +18,7 @@ fi
 mkdir -p generated
 
 #default=["net","iam","c9net","cluster","nodeg","cicd","eks-cidr"]
-SECTIONS=('net' 'iam' 'c9net' 'maint' 'cluster' 'nodeg')
+SECTIONS=('net' 'iam' 'c9net' 'maint' 'cluster' 'nodeg' 'lb' 'efs' 'tool-apps')
  
 for section in "${SECTIONS[@]}"
 do
@@ -116,6 +116,8 @@ ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-iam.tf ~/environment
 echo "Copy remote-cluster.tf"
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/nodeg
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/lb
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/efs
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/tool-apps
 #cp  -v generated/remote-cluster.tf ../extra/.fargate
 
 # Prepare "local state" for the sample app and extra activities

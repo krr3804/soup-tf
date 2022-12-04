@@ -11,4 +11,4 @@ echo "PASSED: Found Instance profile soup-terraform-admin - proceed with the wor
 fi
 aws sts get-caller-identity --query Arn | grep soup-terraform-admin -q && echo "PASSED: IAM role valid - soup-terraform-admin" || echo "ERROR: IAM role not valid - DO NOT PROCEED"
 iname=$(aws ec2 describe-tags --filters "Name=resource-type,Values=instance" "Name=resource-id,Values=$instid" | jq -r '.Tags[] | select(.Key=="Name").Value')
-echo $iname| grep 'soup-eks-terraform\|-Project-mod-' -q && echo "PASSED: Cloud9 IDE name is valid" || echo "ERROR: Cloud9 IDE name invalid! - DO NOT PROCEED"
+echo $iname| grep 'soup-terraform\|-Project-mod-' -q && echo "PASSED: Cloud9 IDE name is valid" || echo "ERROR: Cloud9 IDE name invalid! - DO NOT PROCEED"
