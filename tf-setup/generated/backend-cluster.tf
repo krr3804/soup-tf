@@ -12,10 +12,10 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "tf-state-soup-c38d64ca4ac271b1"
-    key            = "terraform/terraform_locks_c9net.tfstate"
+    bucket         = "tf-state-soup-c0e876bc26e9639f"
+    key            = "terraform/terraform_locks_cluster.tfstate"
     region         = "ap-northeast-2"
-    dynamodb_table = "terraform_locks_c9net"
+    dynamodb_table = "terraform_locks_cluster"
     encrypt        = "true"
   }
 }

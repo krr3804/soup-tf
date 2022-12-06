@@ -28,6 +28,21 @@ output "dynamodb_table_name_maint" {
   description = "The name of the DynamoDB table"
 }
 
+output "dynamodb_table_name_lb" {
+  value       = aws_dynamodb_table.terraform_locks[6].name
+  description = "The name of the DynamoDB table"
+}
+
+output "dynamodb_table_name_efs" {
+  value       = aws_dynamodb_table.terraform_locks[7].name
+  description = "The name of the DynamoDB table"
+}
+
+output "dynamodb_table_name_tool-apps" {
+  value       = aws_dynamodb_table.terraform_locks[8].name
+  description = "The name of the DynamoDB table"
+}
+
 output "region" {
   value       = aws_s3_bucket.terraform_state[*].region
   description = "The name of the region"

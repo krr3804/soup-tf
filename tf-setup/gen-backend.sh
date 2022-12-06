@@ -77,7 +77,7 @@ done
 cd $d
 echo "**** REMOTE ****"
 
-RSECTIONS=('net' 'iam' 'c9net' 'cluster') 
+RSECTIONS=('net' 'iam' 'c9net' 'cluster' 'efs' 'lb') 
 for section in "${RSECTIONS[@]}"
 do
     tabn=`terraform output dynamodb_table_name_$section | tr -d '"'`
@@ -106,6 +106,7 @@ ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/cluster
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/nodeg
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/maint
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/efs
 #cp  -v generated/remote-net.tf ../extra/.fargate
 
 #cp  -v generated/remote-nodeg.tf ../extra/.karpenter
@@ -117,7 +118,12 @@ echo "Copy remote-cluster.tf"
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/nodeg
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/lb
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/efs
-ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/tool-apps
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/tool-apps/elasticsearch
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/tool-apps/mysql
+
+echo "Copy remote-efs.tf"
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-efs.tf ~/environment/soup-tf-code/tool-apps/elasticsearch
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-efs.tf ~/environment/soup-tf-code/tool-apps/mysql
 #cp  -v generated/remote-cluster.tf ../extra/.fargate
 
 # Prepare "local state" for the sample app and extra activities

@@ -1,0 +1,112 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: es
+  namespace: es
+  labels:
+    app: elasticsearch
+spec:
+  clusterIP: None
+  ports:
+    - port: 9300
+      name: inter-node
+    - port: 9200
+      name: rest
+  selector:
+    app: elasticsearch
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: es-master
+  namespace: es
+spec:
+  serviceName: es
+  replicas: 3
+  selector:
+    matchLabels:
+      app: elasticsearch # has to match .spec.template.metadata.labels
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+    spec:
+      initContainers:
+      - name: fix-the-volume-permission
+        image: busybox
+        command:
+        - sh
+        - -c
+        - chown -R 1000:1000 /usr/share/elasticsearch/data
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: data
+          mountPath: /usr/share/elasticsearch/data
+      - name: increase-the-vm-max-map-count
+        image: busybox
+        command:
+        - sysctl
+        - -w
+        - vm.max_map_count=262144
+        securityContext:
+          privileged: true
+      - name: increase-the-ulimit
+        image: busybox
+        command:
+        - sh
+        - -c
+        - ulimit -n 65536
+        securityContext:
+          privileged: true
+      containers:
+      - name: elasticsearch
+        image: aam411/elasticsearch_nori:1.0
+        imagePullPolicy: Always
+        resources:
+            limits:
+              cpu: 1000m
+            requests:
+              cpu: 200m
+        ports:
+        - containerPort: 9300
+          name: inter-node
+          protocol: TCP
+        - containerPort: 9200
+          name: rest
+          protocol: TCP
+        env:
+          - name: HOSTNAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: node.name
+            value: $(HOSTNAME).es.es.svc.cluster.local
+          - name: network.host
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: cluster.name
+            value: es-cluster-1
+          - name: cluster.initial_master_nodes
+            value: "es-master-0.es.es.svc.cluster.local,es-master-1.es.es.svc.cluster.local,es-master-2.es.es.svc.cluster.local"
+          - name: discovery.seed_hosts
+            value: "es-master-0.es.es.svc.cluster.local,es-master-1.es.es.svc.cluster.local,es-master-2.es.es.svc.cluster.local,es-client-0.es.es.svc.cluster.local"   
+          - name: node.master
+            value: "true"
+          - name: node.data
+            value: "true"
+          - name: ES_JAVA_OPTS
+            value: "-Xms2G -Xmx2G"
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+      labels:
+        app: elasticsearch
+      namespace: es
+    spec:
+      storageClassName: "es-efs-sc"
+      accessModes: [ "ReadWriteOnce" ]
+      resources:
+        requests:
+          storage: 10Gi

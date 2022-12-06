@@ -1,7 +1,7 @@
 variable "c9label" {
   description = "Cloud9 IDE Name Label"
   type        = string
-  default     = "c9-soup-eks-terraform"
+  default     = "-cloud9-"
 }
 
 output "c9lab" {
