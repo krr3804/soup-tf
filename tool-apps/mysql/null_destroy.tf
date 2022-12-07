@@ -16,7 +16,7 @@ resource "null_resource" "destroy" {
         echo "done"
         wait
         echo "Remove deploy-crds.yaml"
-        kubectl delete -f deploy-crds.yaml
+        kubectl delete -f https://raw.githubusercontent.com/mysql/mysql-operator/trunk/deploy/deploy-crds.yaml
         echo "done"
      EOT
   }

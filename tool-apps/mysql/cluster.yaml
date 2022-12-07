@@ -9,7 +9,7 @@ spec:
   instances: 2
   version: 8.0.31
   router:
-    instances: 1
+    instances: 2
     version: 8.0.31
   datadirVolumeClaimTemplate:
     storageClassName: mysql-efs-sc
@@ -18,3 +18,11 @@ spec:
     resources:
       requests:
         storage: 10Gi
+  mycnf: |
+    [mysqld]
+    default-time-zone='Asia/Seoul'
+    collation-server = utf8_unicode_ci
+    character-set-server = utf8
+  init.sql: |
+    CREATE DATABASE IF NOT EXISTS mydata;
+    USE mydata;

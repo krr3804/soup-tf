@@ -24,7 +24,7 @@
 # }
 
 resource "null_resource" "es-master-ss" {
-  depends_on = [kubernetes_namespace.es_namespace]
+  depends_on = [kubernetes_namespace.namespace_es]
   triggers = {
     always_run = timestamp()
   }

@@ -8,10 +8,7 @@ resource "null_resource" "mysql" {
     when        = create
     interpreter = ["/bin/bash", "-c"]
     command     = <<EOT
-        rm -f deploy-crds.yaml*
-        curl -o deploy-crds.yaml https://raw.githubusercontent.com/mysql/mysql-operator/trunk/deploy/deploy-crds.yaml
-        wait
-        kubectl apply -f deploy-crds.yaml
+        kubectl apply -f https://raw.githubusercontent.com/mysql/mysql-operator/trunk/deploy/deploy-crds.yaml
         wait
         kubectl apply -f https://raw.githubusercontent.com/mysql/mysql-operator/trunk/deploy/deploy-operator.yaml
         wait

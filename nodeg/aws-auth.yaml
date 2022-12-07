@@ -4,18 +4,18 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: arn:aws:iam::206499228565:role/eks-nodegroup-ng-ma-NodeInstanceRole-1GFKA1037E1XO
+      rolearn: arn:aws:iam::664966433367:role/eks-nodegroup-ng-ma-NodeInstanceRole-1GFKA1037E1XO
       username: system:node:{{EC2PrivateDNSName}}
 kind: ConfigMap
 metadata:
-  creationTimestamp: "2022-12-06T08:29:55Z"
+  creationTimestamp: "2022-12-07T00:18:34Z"
   name: aws-auth
   namespace: kube-system
-  resourceVersion: "1580"
-  uid: 56b9da98-540d-48a6-8ffb-86c62d3ff2c0
+  resourceVersion: "1499"
+  uid: a27d39eb-e936-46a9-aac8-4d280b5ccdf3
 data:
   mapUsers: |
-    - userarn: arn:aws:iam::206499228565:user/workshop  
+    - userarn: arn:aws:iam::664966433367:user/rapa0003  
       username: admin
       groups:
         - system:masters

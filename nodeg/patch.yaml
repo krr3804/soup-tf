@@ -1,6 +1,6 @@
 data:
   mapUsers: |
-    - userarn: arn:aws:iam::206499228565:user/workshop  
+    - userarn: arn:aws:iam::664966433367:user/rapa0003  
       username: admin
       groups:
         - system:masters

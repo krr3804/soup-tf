@@ -1,5 +1,5 @@
 resource "kubernetes_service" "es-client-svc" {
-  depends_on = [kubernetes_namespace.es_namespace]
+  depends_on = [kubernetes_namespace.namespace_es]
   metadata {
     name      = "http-rest6"
     namespace = "es"
@@ -21,7 +21,7 @@ resource "kubernetes_service" "es-client-svc" {
 }
 
 resource "kubernetes_stateful_set" "es-client-ss" {
-  depends_on = [kubernetes_namespace.es_namespace]
+  depends_on = [kubernetes_namespace.namespace_es]
   metadata {
     name      = "es-client"
     namespace = "es"

@@ -12,7 +12,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "tf-state-soup-c0e876bc26e9639f"
+    bucket         = "tf-state-soup-96c06be1ea4387b8"
     key            = "terraform/terraform_locks_tool-apps.tfstate"
     region         = "ap-northeast-2"
     dynamodb_table = "terraform_locks_tool-apps"
