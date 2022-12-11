@@ -21,8 +21,5 @@ spec:
   mycnf: |
     [mysqld]
     default-time-zone='Asia/Seoul'
-    collation-server = utf8_unicode_ci
-    character-set-server = utf8
-  init.sql: |
-    CREATE DATABASE IF NOT EXISTS mydata;
-    USE mydata;
+    collation-server = utf8mb4_unicode_ci
+    character-set-server = utf8mb4

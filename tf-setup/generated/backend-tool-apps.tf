@@ -10,9 +10,13 @@ terraform {
       source  = "hashicorp/kubernetes"
       version = "2.13.1"
     }
+    kubectl = {
+      source  = "gavinbunney/kubectl"
+      version = ">= 1.7.0"
+    }
   }
   backend "s3" {
-    bucket         = "tf-state-soup-96c06be1ea4387b8"
+    bucket         = "tf-state-soup-449f49ca2d5295cb"
     key            = "terraform/terraform_locks_tool-apps.tfstate"
     region         = "ap-northeast-2"
     dynamodb_table = "terraform_locks_tool-apps"

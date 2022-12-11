@@ -46,6 +46,10 @@ do
     printf "   source = \"hashicorp/kubernetes\"\n" >> $of
     printf "   version = \"2.13.1\"\n" >> $of
     printf "  }\n" >> $of
+    printf "  kubectl = {\n" >> $of
+    printf "   source = \"gavinbunney/kubectl\"\n" >> $of
+    printf "   version = \">= 1.7.0\"\n" >> $of
+    printf "  }\n" >> $of
     printf " }\n" >> $of
     printf "backend \"s3\" {\n" >> $of
     printf "bucket = \"%s\"\n"  $s3b >> $of
@@ -107,6 +111,7 @@ ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/nodeg
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/maint
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/efs
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-net.tf ~/environment/soup-tf-code/tool-apps/kubernetes_resources
 #cp  -v generated/remote-net.tf ../extra/.fargate
 
 #cp  -v generated/remote-nodeg.tf ../extra/.karpenter
@@ -120,6 +125,7 @@ ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environ
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/efs
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/tool-apps/elasticsearch
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/tool-apps/mysql
+ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-cluster.tf ~/environment/soup-tf-code/tool-apps/argocd
 
 echo "Copy remote-efs.tf"
 ln  -s ~/environment/soup-tf-code/tf-setup/generated/remote-efs.tf ~/environment/soup-tf-code/tool-apps/elasticsearch

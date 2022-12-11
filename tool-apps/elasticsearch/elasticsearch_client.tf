@@ -67,7 +67,7 @@ resource "kubernetes_stateful_set" "es-client-ss" {
         }
         container {
           name              = "elasticsearch"
-          image             = "aam411/elasticsearch_nori:1.0"
+          image             = "aam411/elasticsearch_nori:1.1"
           image_pull_policy = "Always"
           resources {
             limits = {
@@ -130,7 +130,7 @@ resource "kubernetes_stateful_set" "es-client-ss" {
           }
           env {
             name  = "ES_JAVA_OPTS"
-            value = "-Xms4G -Xmx4G"
+            value = "-Xms1G -Xmx1G"
           }
         }
       }

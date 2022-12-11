@@ -61,7 +61,7 @@ spec:
           privileged: true
       containers:
       - name: elasticsearch
-        image: aam411/elasticsearch_nori:1.0
+        image: aam411/elasticsearch_nori:1.1
         imagePullPolicy: Always
         resources:
             limits:
