@@ -3,5 +3,5 @@ data "aws_eks_cluster" "eks_cluster" {
 }
 
 data "aws_eks_cluster_auth" "eks" {
-  name  = data.aws_eks_cluster.eks_cluster.name
+  name = data.aws_eks_cluster.eks_cluster.name
 }

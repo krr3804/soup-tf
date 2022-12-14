@@ -130,7 +130,7 @@ resource "kubernetes_stateful_set" "es-client-ss" {
           }
           env {
             name  = "ES_JAVA_OPTS"
-            value = "-Xms1G -Xmx1G"
+            value = "-Xms2G -Xmx2G"
           }
         }
       }

@@ -1,6 +1,6 @@
 resource "kubernetes_horizontal_pod_autoscaler_v2beta2" "soup-search-backend-hpa" {
   metadata {
-    name = "soup-search-backend"
+    name      = "soup-search-backend"
     namespace = "ser-mgt"
   }
   spec {
@@ -9,24 +9,21 @@ resource "kubernetes_horizontal_pod_autoscaler_v2beta2" "soup-search-backend-hpa
 
     scale_target_ref {
       api_version = "apps/v1"
-      kind = "Deployment"
-      name = "soup-search-backend"
+      kind        = "Deployment"
+      name        = "soup-search-backend"
     }
 
     metric {
       type = "Resource"
       resource {
-        metric {
-          name = "cpu"
-          target {
-            type  = "Utilization"
-            value = "70"
-          }
+        name = "cpu"
+        target {
+          type  = "Utilization"
+          average_utilization = "70"
         }
       }
     }
-  }
-  
+
     behavior {
       scale_down {
         stabilization_window_seconds = 120
@@ -45,6 +42,7 @@ resource "kubernetes_horizontal_pod_autoscaler_v2beta2" "soup-search-backend-hpa
       }
       scale_up {
         stabilization_window_seconds = 120
+        select_policy                = "Max"
         policy {
           period_seconds = 30
           type           = "Percent"
@@ -57,4 +55,5 @@ resource "kubernetes_horizontal_pod_autoscaler_v2beta2" "soup-search-backend-hpa
         }
       }
     }
+  }
 }

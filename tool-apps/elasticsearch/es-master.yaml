@@ -31,6 +31,8 @@ spec:
       labels:
         app: elasticsearch
     spec:
+      nodeSelector:
+        eks/nodegroup-name: ng2-soup-cluster1
       initContainers:
       - name: fix-the-volume-permission
         image: busybox

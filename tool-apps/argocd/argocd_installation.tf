@@ -6,17 +6,17 @@ provider "kubectl" {
 }
 
 data "kubectl_file_documents" "namespace_argocd" {
-    content = file("namespace_argocd.yaml")
-} 
+  content = file("namespace_argocd.yaml")
+}
 
 data "kubectl_file_documents" "argocd-installation" {
   content = file("install.yaml")
 }
 
 resource "kubectl_manifest" "namespace_argocd" {
-    count     = length(data.kubectl_file_documents.namespace_argocd.documents)
-    yaml_body = element(data.kubectl_file_documents.namespace_argocd.documents, count.index)
-    override_namespace = "argocd"
+  count              = length(data.kubectl_file_documents.namespace_argocd.documents)
+  yaml_body          = element(data.kubectl_file_documents.namespace_argocd.documents, count.index)
+  override_namespace = "argocd"
 }
 
 
